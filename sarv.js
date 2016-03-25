@@ -1,7 +1,7 @@
 (function () {
     var Settings, Messages, Account, url;
     var request = require('request');
-    url = 'http://master.us.sarv.email:7278/';
+    url = 'http://master.us.sarv.email:7279/v1.0/';
 
     exports.Sarv = (function () {
         function Sarv(owner_id, apikey, debug) {
