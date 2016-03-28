@@ -1,12 +1,12 @@
 (function () {
-    var Settings, Messages, Account, url;
+    var Settings, Messages, Account;
     var request = require('request');
-    url = 'http://master.us.sarv.email:7279/v1.0/';
 
     exports.Sarv = (function () {
-        function Sarv(owner_id, apikey, debug) {
+        function Sarv(owner_id, apikey, appDomain, debug) {
             this.apikey = apikey != null ? apikey : null;
             this.owner_id = owner_id != null ? owner_id : null;
+            this.url = 'http://' + appDomain + ':7279/v1.0/';
             this.debug = debug != null ? debug : false;
             this.messages = new Messages(this);
             this.settings = new Settings(this);
@@ -21,7 +21,7 @@
             params.owner_id = this.owner_id;
             params.token = this.apikey;
             //console.log(params)
-            request.post({url: url + uri, form: params}, function (err, httpResponse, body) {
+            request.post({url: this.url + uri, form: params}, function (err, httpResponse, body) {
                 if (err) {
                     return onerror(err);
                 }
@@ -313,8 +313,8 @@
             }
             return this.master.call('messages/sendMail', params, onsuccess, onerror);
         };
-		
-		Messages.prototype.sendRaw = function (params, onsuccess, onerror) {
+
+        Messages.prototype.sendRaw = function (params, onsuccess, onerror) {
             if (params == null) {
                 params = {};
             }
@@ -325,7 +325,7 @@
             }
             return this.master.call('messages/sendRaw', params, onsuccess, onerror);
         };
-		
+
         return Messages;
 
     })();
