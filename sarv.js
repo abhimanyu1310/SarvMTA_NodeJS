@@ -292,6 +292,18 @@
             }
             return this.master.call('settings/listWebhook', params, onsuccess, onerror);
         };
+        
+        Settings.prototype.getWebhookInfo = function (params, onsuccess, onerror) {
+            if (params == null) {
+                params = {};
+            }
+            if (typeof params === 'function') {
+                onerror = onsuccess;
+                onsuccess = params;
+                params = {};
+            }
+            return this.master.call('settings/getWebhookInfo', params, onsuccess, onerror);
+        };
 
         return Settings;
 
@@ -324,6 +336,18 @@
                 params = {};
             }
             return this.master.call('messages/sendRaw', params, onsuccess, onerror);
+        };
+        
+        Messages.prototype.getMessageInfo = function (params, onsuccess, onerror) {
+            if (params == null) {
+                params = {};
+            }
+            if (typeof params === 'function') {
+                onerror = onsuccess;
+                onsuccess = params;
+                params = {};
+            }
+            return this.master.call('messages/getMessageInfo', params, onsuccess, onerror);
         };
 
         return Messages;
