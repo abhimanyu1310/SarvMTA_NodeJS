@@ -6,7 +6,7 @@
         function Sarv(owner_id, apikey, appDomain, debug) {
             this.apikey = apikey != null ? apikey : null;
             this.owner_id = owner_id != null ? owner_id : null;
-            this.url = 'http://' + appDomain + ':7279/v1.0/';
+            this.url = 'http://' + appDomain + ':7278/v1.0/';
             this.debug = debug != null ? debug : false;
             this.messages = new Messages(this);
             this.settings = new Settings(this);
