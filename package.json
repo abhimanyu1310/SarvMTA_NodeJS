@@ -1,0 +1,16 @@
+{
+    "name": "SarvMTA_NodeJS",
+    "description": "A node.js wrapper for SarvMTA API.",
+    "author": "Sarv.com",
+    "license": "NONE",
+    "main": "sarv.js",
+    "dependencies": {
+        "request": "~2.74.0"
+    },
+    "bugs": {
+        "url": "https://github.com/abhimanyu1310/SarvMTA_NodeJS/issues"
+    },
+    "homepage": "https://sarv.com/docs/",
+    "keywords": ["sarvtes", "node sarvtes", "tes api", "email", "send email", "email api", "sarv mta"]
+}
+
