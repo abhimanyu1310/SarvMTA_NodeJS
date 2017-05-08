@@ -325,6 +325,18 @@
             }
             return this.master.call('messages/sendMail', params, onsuccess, onerror);
         };
+        
+        Messages.prototype.sendTemplate = function (params, onsuccess, onerror) {
+            if (params == null) {
+                params = {};
+            }
+            if (typeof params === 'function') {
+                onerror = onsuccess;
+                onsuccess = params;
+                params = {};
+            }
+            return this.master.call('messages/sendTemplate', params, onsuccess, onerror);
+        };
 
         Messages.prototype.sendRaw = function (params, onsuccess, onerror) {
             if (params == null) {
